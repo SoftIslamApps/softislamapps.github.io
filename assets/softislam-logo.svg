@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <defs>
+    <linearGradient id="gold_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fcedb3"/>
+      <stop offset="50%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#997a15"/>
+    </linearGradient>
+    <linearGradient id="emerald_grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#14532d"/>
+      <stop offset="100%" stop-color="#064e3b"/>
+    </linearGradient>
+    <filter id="soft_glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Outer subtle circular ring -->
+  <circle cx="60" cy="60" r="54" fill="none" stroke="url(#gold_grad)" stroke-width="1.2" stroke-dasharray="3 3" opacity="0.6"/>
+  
+  <!-- Background disc -->
+  <circle cx="60" cy="60" r="48" fill="#0d141e" stroke="url(#gold_grad)" stroke-width="1.5"/>
+
+  <!-- 8-Point Rub-el-Hizb Geometric Star -->
+  <g transform="translate(60,60)">
+    <!-- Square 1 -->
+    <rect x="-26" y="-26" width="52" height="52" rx="6" fill="none" stroke="url(#gold_grad)" stroke-width="1.8" opacity="0.85"/>
+    <!-- Square 2 rotated 45 deg -->
+    <rect x="-26" y="-26" width="52" height="52" rx="6" fill="none" stroke="url(#gold_grad)" stroke-width="1.8" transform="rotate(45)" opacity="0.85"/>
+    <!-- Inner central circle -->
+    <circle cx="0" cy="0" r="14" fill="#090d14" stroke="url(#gold_grad)" stroke-width="1.5"/>
+    <!-- Central geometric jewel -->
+    <path d="M 0 -8 L 6 0 L 0 8 L -6 0 Z" fill="url(#gold_grad)"/>
+  </g>
+</svg>

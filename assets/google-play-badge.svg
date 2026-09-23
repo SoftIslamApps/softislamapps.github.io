@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 564.35 168.99" width="180" height="54">
+  <defs>
+    <linearGradient id="gp_b" x1="28.62" y1="-80.84" x2="152.02" y2="42.56" gradientTransform="matrix(1 0 0 -1 0 16.64)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00a0ff"/>
+      <stop offset=".01" stop-color="#00a1ff"/>
+      <stop offset=".26" stop-color="#00beff"/>
+      <stop offset=".58" stop-color="#00daf2"/>
+      <stop offset=".84" stop-color="#00ece8"/>
+      <stop offset="1" stop-color="#00f3e3"/>
+    </linearGradient>
+    <linearGradient id="gp_c" x1="248.51" y1="36.19" x2="31.8" y2="36.19" gradientTransform="matrix(1 0 0 -1 0 16.64)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffe000"/>
+      <stop offset=".41" stop-color="#ffbd00"/>
+      <stop offset=".78" stop-color="orange"/>
+      <stop offset="1" stop-color="#ff9c00"/>
+    </linearGradient>
+    <linearGradient id="gp_d" x1="172.48" y1="14.39" x2="5.52" y2="-152.57" gradientTransform="matrix(1 0 0 -1 0 16.64)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ff3a44"/>
+      <stop offset="1" stop-color="#c31162"/>
+    </linearGradient>
+    <linearGradient id="gp_e" x1="39.29" y1="126.97" x2="114.73" y2="51.52" gradientTransform="matrix(1 0 0 -1 0 16.64)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#32a071"/>
+      <stop offset=".07" stop-color="#2da771"/>
+      <stop offset=".48" stop-color="#15cf74"/>
+      <stop offset=".8" stop-color="#06e775"/>
+      <stop offset="1" stop-color="#00f076"/>
+    </linearGradient>
+  </defs>
+  <!-- Background badge -->
+  <rect x="1.5" y="1.5" width="561.35" height="165.99" rx="26" fill="#000000" stroke="#a6a6a6" stroke-width="3" stroke-miterlimit="10"/>
+  <!-- Google Play Icon -->
+  <g transform="translate(42, 28)">
+    <path fill="url(#gp_b)" d="M5.44 2.87C1.98 6.51 0 11.96 0 18.99v74.96c0 7.03 1.98 12.48 5.44 16.12l.62.59 42.61-42.61v-1.02L6.06 2.28l-.62.59z"/>
+    <path fill="url(#gp_c)" d="M63.78 82.26l-15.11-15.22v-1.13L63.78 50.7l.34.2 17.89 10.17c5.1 2.89 5.1 7.64 0 10.56l-17.89 10.43-.34.2z"/>
+    <path fill="url(#gp_d)" d="M64.12 82.06L48.67 66.51 5.44 109.74c1.68 1.78 4.47 1.98 7.64.2l51.04-27.88"/>
+    <path fill="url(#gp_e)" d="M64.12 50.9L13.08 23.02c-3.17-1.78-5.96-1.58-7.64.2L48.67 66.51l15.45-15.61z"/>
+  </g>
+  <!-- Text: GET IT ON -->
+  <text fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="28" font-weight="600" letter-spacing="3" x="180" y="58">GET IT ON</text>
+  <!-- Text: Google Play -->
+  <text fill="#ffffff" font-family="'Product Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="62" font-weight="700" letter-spacing="0.5" x="180" y="128">Google Play</text>
+</svg>

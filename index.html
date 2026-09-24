@@ -3,8 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SoftIslam — Thoughtfully Crafted Islamic Apps | Quran Mushaf, Adhan & TV</title>
-    <meta name="description" content="Discover SoftIslam's suite of distraction-free, privacy-first Islamic applications: Quran Mushaf (Available now on Android), Adhan Prayer Times, and Adhan TV." />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("softislam-theme");
+          if (t !== "light" && t !== "dark") {
+            t = (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches) ? "light" : "dark";
+          }
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+    <title data-i18n="meta.title">SoftIslam — Thoughtfully Crafted Islamic Apps | Quran Mushaf, Adhan & TV</title>
+    <meta name="description" data-i18n-attr="content:meta.description" content="Discover SoftIslam's suite of distraction-free, privacy-first Islamic applications: Quran Mushaf (Available now on Android), Adhan Prayer Times, and Adhan TV." />
     <link rel="canonical" href="https://softislam.com/" />
     
     <!-- Open Graph / Social Sharing -->
@@ -27,7 +38,7 @@
     <!-- Typography: Plus Jakarta Sans for UI + Amiri for Quranic Calligraphy -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Noto+Kufi+Arabic:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     
     <!-- Stylesheet -->
     <link rel="stylesheet" href="./style.css" />
@@ -76,20 +87,25 @@
 
         <!-- Zone 2: Navigation Links -->
         <nav class="main-nav" aria-label="Primary Navigation">
-          <a href="#apps" class="nav-link">Our Apps</a>
-          <a href="#quran-mushaf" class="nav-link">Quran Mushaf</a>
-          <a href="#adhan-prayer-times" class="nav-link">Adhan Mobile</a>
-          <a href="#adhan-tv" class="nav-link">Adhan TV</a>
-          <a href="#values" class="nav-link">Our Values</a>
+          <a href="#apps" class="nav-link" data-i18n="nav.apps">Our Apps</a>
+          <a href="#quran-mushaf" class="nav-link" data-i18n="nav.mushaf">Quran Mushaf</a>
+          <a href="#adhan-prayer-times" class="nav-link" data-i18n="nav.adhanMobile">Adhan Mobile</a>
+          <a href="#adhan-tv" class="nav-link" data-i18n="nav.adhanTv">Adhan TV</a>
+          <a href="#values" class="nav-link" data-i18n="nav.values">Our Values</a>
         </nav>
 
         <!-- Zone 3: Primary Action & Mobile Menu Toggle -->
         <div class="header-actions">
+          <button id="langToggleBtn" type="button" class="icon-toggle-btn" aria-label="Switch language">ع</button>
+          <button id="themeToggleBtn" type="button" class="icon-toggle-btn" aria-pressed="false" aria-label="Switch theme">
+            <svg class="theme-icon-dark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="theme-icon-light" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
           <a href="https://play.google.com/store/apps/details?id=slm.mushaf" target="_blank" rel="noopener noreferrer" class="btn-header-cta">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span>Get Quran Mushaf</span>
+            <span data-i18n="header.cta">Get Quran Mushaf</span>
           </a>
-          <button id="mobileNavBtn" class="mobile-nav-toggle" aria-expanded="false" aria-controls="mobileNavMenu" aria-label="Toggle navigation menu">
+          <button id="mobileNavBtn" class="mobile-nav-toggle" aria-expanded="false" aria-controls="mobileNavMenu" data-i18n-attr="aria-label:header.mobileToggle" aria-label="Toggle navigation menu">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
           </button>
         </div>
@@ -97,11 +113,11 @@
 
       <!-- Mobile Dropdown Navigation -->
       <div id="mobileNavMenu" class="mobile-nav-menu" aria-hidden="true">
-        <a href="#apps" class="nav-link">Our Apps</a>
-        <a href="#quran-mushaf" class="nav-link">Quran Mushaf</a>
-        <a href="#adhan-prayer-times" class="nav-link">Adhan Mobile</a>
-        <a href="#adhan-tv" class="nav-link">Adhan TV</a>
-        <a href="#values" class="nav-link">Our Values</a>
+        <a href="#apps" class="nav-link" data-i18n="nav.apps">Our Apps</a>
+        <a href="#quran-mushaf" class="nav-link" data-i18n="nav.mushaf">Quran Mushaf</a>
+        <a href="#adhan-prayer-times" class="nav-link" data-i18n="nav.adhanMobile">Adhan Mobile</a>
+        <a href="#adhan-tv" class="nav-link" data-i18n="nav.adhanTv">Adhan TV</a>
+        <a href="#values" class="nav-link" data-i18n="nav.values">Our Values</a>
       </div>
     </header>
 
@@ -110,25 +126,25 @@
       <section class="hero-section" aria-labelledby="hero-title">
         <div class="container">
           <!-- Sacred Bismillah Calligraphy Accent -->
-          <div class="hero-bismillah" lang="ar" dir="rtl" aria-label="Bismillah ar-Rahman ar-Rahim">
+          <div class="hero-bismillah" lang="ar" dir="rtl" data-i18n-attr="aria-label:hero.bismillah" aria-label="Bismillah ar-Rahman ar-Rahim">
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </div>
 
-          <h1 id="hero-title" class="hero-headline">
+          <h1 id="hero-title" class="hero-headline" data-i18n="hero.headline">
             Thoughtfully Crafted Islamic Apps for Daily Worship
           </h1>
 
-          <p class="hero-subhead">
+          <p class="hero-subhead" data-i18n="hero.subhead">
             Distraction-free, privacy-first applications engineered for genuine spiritual focus. Read the Holy Quran with authentic Uthmani script and stay anchored to your daily prayers across mobile, TV, and desktop.
           </p>
 
           <div class="hero-actions">
             <a href="https://play.google.com/store/apps/details?id=slm.mushaf" target="_blank" rel="noopener noreferrer" class="btn-header-cta" style="padding: 0.85rem 1.6rem; font-size: 0.95rem;">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-              <span>Download Quran Mushaf</span>
+              <span data-i18n="hero.ctaDownload">Download Quran Mushaf</span>
             </a>
             <a href="#apps" class="btn-secondary">
-              <span>View Upcoming Apps</span>
+              <span data-i18n="hero.ctaUpcoming">View Upcoming Apps</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
           </div>
@@ -137,19 +153,19 @@
           <div class="trust-bar">
             <div class="trust-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-              <span>100% Ad-Free &amp; Pure</span>
+              <span data-i18n="trust.adFree">100% Ad-Free &amp; Pure</span>
             </div>
             <div class="trust-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              <span>Zero Tracking · Total Privacy</span>
+              <span data-i18n="trust.privacy">Zero Tracking · Total Privacy</span>
             </div>
             <div class="trust-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1l22 22"/><path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"/><path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"/><path d="M10.71 5.05A16 16 0 0 1 22.58 9"/><path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
-              <span>Offline-First Reliability</span>
+              <span data-i18n="trust.offline">Offline-First Reliability</span>
             </div>
             <div class="trust-item">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <span>Authentic Scholarly Sources</span>
+              <span data-i18n="trust.scholarly">Authentic Scholarly Sources</span>
             </div>
           </div>
         </div>
@@ -159,9 +175,9 @@
       <section id="apps" class="section" aria-labelledby="apps-heading">
         <div class="container">
           <div class="section-header text-center">
-            <p class="section-kicker">Software Suite</p>
-            <h2 id="apps-heading" class="section-title">Crafted for Worship Across Every Screen</h2>
-            <p class="section-desc">From personal mobile recitation to big screen ambient prayer displays for your home or mosque.</p>
+            <p class="section-kicker" data-i18n="apps.kicker">Software Suite</p>
+            <h2 id="apps-heading" class="section-title" data-i18n="apps.title">Crafted for Worship Across Every Screen</h2>
+            <p class="section-desc" data-i18n="apps.desc">From personal mobile recitation to big screen ambient prayer displays for your home or mosque.</p>
           </div>
 
           <!-- Featured Showcase App: Quran Mushaf (App A) -->
@@ -170,30 +186,30 @@
               <div class="featured-content">
                 <div class="app-badge-meta">
                   <span class="status-dot-pulse" aria-hidden="true"></span>
-                  <span>AVAILABLE NOW ON ANDROID · DESKTOP IN PROGRESS</span>
+                  <span data-i18n="mushaf.badge">AVAILABLE NOW ON ANDROID · DESKTOP IN PROGRESS</span>
                 </div>
 
-                <h3 id="mushaf-title" class="app-title">Quran Mushaf</h3>
-                <p class="app-short-desc">
+                <h3 id="mushaf-title" class="app-title" data-i18n="mushaf.title">Quran Mushaf</h3>
+                <p class="app-short-desc" data-i18n="mushaf.desc">
                   An authentic, serene Quran reading application featuring true Uthmani script, high-resolution pages, verse-by-verse recitation audio, and a completely distraction-free reading sanctuary.
                 </p>
 
                 <ul class="feature-check-list">
                   <li class="feature-check-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span><strong>Authentic Uthmani Script:</strong> Clear Madani calligraphy with meticulously placed vowel markings (Harakat) and Tajweed clarity.</span>
+                    <span data-i18n-html="mushaf.feat1.strong" data-i18n-html-text="mushaf.feat1.text"><strong>Authentic Uthmani Script:</strong> Clear Madani calligraphy with meticulously placed vowel markings (Harakat) and Tajweed clarity.</span>
                   </li>
                   <li class="feature-check-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span><strong>Pure Reading Sanctuary:</strong> Completely free from ads, banners, commercial tracking, or interruptions.</span>
+                    <span data-i18n-html="mushaf.feat2.strong" data-i18n-html-text="mushaf.feat2.text"><strong>Pure Reading Sanctuary:</strong> Completely free from ads, banners, commercial tracking, or interruptions.</span>
                   </li>
                   <li class="feature-check-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span><strong>Intuitive Surah &amp; Juz Navigation:</strong> Instant search, bookmarking, and page-flipping designed for fluid recitation.</span>
+                    <span data-i18n-html="mushaf.feat3.strong" data-i18n-html-text="mushaf.feat3.text"><strong>Intuitive Surah &amp; Juz Navigation:</strong> Instant search, bookmarking, and page-flipping designed for fluid recitation.</span>
                   </li>
                   <li class="feature-check-item">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span><strong>Offline Accessibility:</strong> Access the complete holy text and your bookmarks anytime, without needing an internet connection.</span>
+                    <span data-i18n-html="mushaf.feat4.strong" data-i18n-html-text="mushaf.feat4.text"><strong>Offline Accessibility:</strong> Access the complete holy text and your bookmarks anytime, without needing an internet connection.</span>
                   </li>
                 </ul>
 
@@ -210,7 +226,7 @@
                   <div class="coming-soon-indicator">
                     <div class="coming-soon-btn" title="Desktop app in active development">
                       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                      <span>Desktop (macOS / Windows / Linux) — <strong>Coming soon</strong></span>
+                      <span><span data-i18n="mushaf.desktopSoon">Desktop (macOS / Windows / Linux) — </span><strong data-i18n="mushaf.comingSoon">Coming soon</strong></span>
                     </div>
                   </div>
                 </div>
@@ -233,33 +249,33 @@
               <div class="secondary-content">
                 <div class="app-badge-meta" style="color: var(--gold-400);">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  <span>MOBILE · COMING SOON</span>
+                  <span data-i18n="adhanMobile.badge">MOBILE · COMING SOON</span>
                 </div>
 
-                <h3 id="adhan-mobile-title" class="secondary-title">Adhan Prayer Times</h3>
-                <p class="secondary-desc">
+                <h3 id="adhan-mobile-title" class="secondary-title" data-i18n="adhanMobile.title">Adhan Prayer Times</h3>
+                <p class="secondary-desc" data-i18n="adhanMobile.desc">
                   An elegant, highly accurate prayer times companion for mobile. Provides precise calculation methods worldwide, custom adhan calls, Qibla direction, and battery-efficient background scheduling.
                 </p>
 
                 <ul class="secondary-features">
                   <li>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span><strong>Scholarly Calculation Methods:</strong> Supports Umm al-Qura, ISNA, MWL, Egyptian, Karachi, and custom angles.</span>
+                    <span data-i18n-html="adhanMobile.feat1.strong" data-i18n-html-text="adhanMobile.feat1.text"><strong>Scholarly Calculation Methods:</strong> Supports Umm al-Qura, ISNA, MWL, Egyptian, Karachi, and custom angles.</span>
                   </li>
                   <li>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span><strong>Harmonious Audio Adhans:</strong> Authentic Muezzin recordings from Makkah, Madinah, and Al-Aqsa.</span>
+                    <span data-i18n-html="adhanMobile.feat2.strong" data-i18n-html-text="adhanMobile.feat2.text"><strong>Harmonious Audio Adhans:</strong> Authentic Muezzin recordings from Makkah, Madinah, and Al-Aqsa.</span>
                   </li>
                   <li>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span><strong>Precise Qibla Compass:</strong> Real-time direction with magnetic declination correction.</span>
+                    <span data-i18n-html="adhanMobile.feat3.strong" data-i18n-html-text="adhanMobile.feat3.text"><strong>Precise Qibla Compass:</strong> Real-time direction with magnetic declination correction.</span>
                   </li>
                 </ul>
 
                 <div class="secondary-footer">
                   <span class="coming-soon-btn">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-                    <span>iOS &amp; Android Mobile — <strong>Coming soon</strong></span>
+                    <span><span data-i18n="adhanMobile.footer">iOS &amp; Android Mobile — </span><strong data-i18n="mushaf.comingSoon">Coming soon</strong></span>
                   </span>
                 </div>
               </div>
@@ -273,33 +289,33 @@
               <div class="secondary-content">
                 <div class="app-badge-meta" style="color: var(--gold-400);">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                  <span>BIG SCREEN · COMING SOON</span>
+                  <span data-i18n="adhanTv.badge">BIG SCREEN · COMING SOON</span>
                 </div>
 
-                <h3 id="adhan-tv-title" class="secondary-title">Adhan TV</h3>
-                <p class="secondary-desc">
+                <h3 id="adhan-tv-title" class="secondary-title" data-i18n="adhanTv.title">Adhan TV</h3>
+                <p class="secondary-desc" data-i18n="adhanTv.desc">
                   Transform your smart TV into an ambient, serene prayer clock for your household, community space, or musalla. Displays prayer schedules, upcoming prayer countdown, and automatic adhan playback.
                 </p>
 
                 <ul class="secondary-features">
                   <li>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span><strong>Ambient Living Room Display:</strong> Subtle animations and tranquil day-to-night lighting adapted for TV screens.</span>
+                    <span data-i18n-html="adhanTv.feat1.strong" data-i18n-html-text="adhanTv.feat1.text"><strong>Ambient Living Room Display:</strong> Subtle animations and tranquil day-to-night lighting adapted for TV screens.</span>
                   </li>
                   <li>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span><strong>Clear Room-Wide Legibility:</strong> High contrast typographic timetable readable from across large rooms.</span>
+                    <span data-i18n-html="adhanTv.feat2.strong" data-i18n-html-text="adhanTv.feat2.text"><strong>Clear Room-Wide Legibility:</strong> High contrast typographic timetable readable from across large rooms.</span>
                   </li>
                   <li>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-                    <span><strong>OLED Burn-in Protection:</strong> Intelligent pixel micro-shifting designed for all-day TV displays.</span>
+                    <span data-i18n-html="adhanTv.feat3.strong" data-i18n-html-text="adhanTv.feat3.text"><strong>OLED Burn-in Protection:</strong> Intelligent pixel micro-shifting designed for all-day TV displays.</span>
                   </li>
                 </ul>
 
                 <div class="secondary-footer">
                   <span class="coming-soon-btn">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
-                    <span>Android TV / Apple TV / Fire TV — <strong>Coming soon</strong></span>
+                    <span><span data-i18n="adhanTv.footer">Android TV / Apple TV / Fire TV — </span><strong data-i18n="mushaf.comingSoon">Coming soon</strong></span>
                   </span>
                 </div>
               </div>
@@ -312,9 +328,9 @@
       <section id="values" class="section" aria-labelledby="values-heading">
         <div class="container">
           <div class="section-header text-center">
-            <p class="section-kicker">Our Philosophy</p>
-            <h2 id="values-heading" class="section-title">Built with Reverence &amp; Digital Integrity</h2>
-            <p class="section-desc">We build technology as an act of service, putting spiritual focus and privacy above commercial monetization.</p>
+            <p class="section-kicker" data-i18n="values.kicker">Our Philosophy</p>
+            <h2 id="values-heading" class="section-title" data-i18n="values.title">Built with Reverence &amp; Digital Integrity</h2>
+            <p class="section-desc" data-i18n="values.desc">We build technology as an act of service, putting spiritual focus and privacy above commercial monetization.</p>
           </div>
 
           <div class="values-grid">
@@ -322,39 +338,39 @@
               <div class="value-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24"/><path d="m14.83 9.17 4.24-4.24"/><path d="m14.83 14.83 4.24 4.24"/><path d="m9.17 14.83-4.24 4.24"/></svg>
               </div>
-              <h3 class="value-title">Zero Advertisements</h3>
-              <p class="value-desc">No commercial banners, popups, or video ads inside sacred moments. Your Quran recitation and prayer reminders remain pure.</p>
+              <h3 class="value-title" data-i18n="values.card1.title">Zero Advertisements</h3>
+              <p class="value-desc" data-i18n="values.card1.desc">No commercial banners, popups, or video ads inside sacred moments. Your Quran recitation and prayer reminders remain pure.</p>
             </div>
 
             <div class="value-card">
               <div class="value-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
               </div>
-              <h3 class="value-title">Strict Privacy</h3>
-              <p class="value-desc">No location telemetry harvesting, no behavioral profiling, and no selling of user data. All prayer calculations happen on-device.</p>
+              <h3 class="value-title" data-i18n="values.card2.title">Strict Privacy</h3>
+              <p class="value-desc" data-i18n="values.card2.desc">No location telemetry harvesting, no behavioral profiling, and no selling of user data. All prayer calculations happen on-device.</p>
             </div>
 
             <div class="value-card">
               <div class="value-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
               </div>
-              <h3 class="value-title">Scholarly Accuracy</h3>
-              <p class="value-desc">Quranic scripts and calculation parameters are cross-referenced with established Islamic authorities and standards.</p>
+              <h3 class="value-title" data-i18n="values.card3.title">Scholarly Accuracy</h3>
+              <p class="value-desc" data-i18n="values.card3.desc">Quranic scripts and calculation parameters are cross-referenced with established Islamic authorities and standards.</p>
             </div>
 
             <div class="value-card">
               <div class="value-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
               </div>
-              <h3 class="value-title">Modern Engineering</h3>
-              <p class="value-desc">Fast, battery-efficient, and responsive software built with modern performance standards for mobile, desktop, and TV.</p>
+              <h3 class="value-title" data-i18n="values.card4.title">Modern Engineering</h3>
+              <p class="value-desc" data-i18n="values.card4.desc">Fast, battery-efficient, and responsive software built with modern performance standards for mobile, desktop, and TV.</p>
             </div>
           </div>
 
           <!-- Bottom CTA Banner -->
           <div class="cta-banner">
-            <h2 class="cta-headline">Experience Quran Mushaf Today</h2>
-            <p class="cta-subhead">Join Muslims reading the Holy Quran with authentic Uthmani calligraphy on Android. Completely free and ad-free.</p>
+            <h2 class="cta-headline" data-i18n="cta.headline">Experience Quran Mushaf Today</h2>
+            <p class="cta-subhead" data-i18n="cta.subhead">Join Muslims reading the Holy Quran with authentic Uthmani calligraphy on Android. Completely free and ad-free.</p>
             <div>
               <a href="https://play.google.com/store/apps/details?id=slm.mushaf" target="_blank" rel="noopener noreferrer" class="google-play-btn" aria-label="Download Quran Mushaf from Google Play Store">
                 <img src="./assets/google-play-badge.svg" alt="Get it on Google Play" class="google-play-badge-img" width="180" height="54" style="margin: 0 auto;" />
@@ -374,39 +390,42 @@
               <img src="./assets/softislam-logo.svg" alt="SoftIslam Logo" class="brand-logo-img" width="28" height="28" />
               <span class="brand-name">Soft<span>Islam</span></span>
             </a>
-            <p class="footer-desc">
+            <p class="footer-desc" data-i18n="footer.desc">
               Dedicated to crafting purposeful, distraction-free Islamic software. Empowering Muslims worldwide with digital tools for worship, study, and daily remembrance.
             </p>
           </div>
 
           <div>
-            <h4 class="footer-col-title">Applications</h4>
+            <h4 class="footer-col-title" data-i18n="footer.applications">Applications</h4>
             <ul class="footer-links">
-              <li><a href="https://play.google.com/store/apps/details?id=slm.mushaf" target="_blank" rel="noopener noreferrer" class="footer-link">Quran Mushaf (Android)</a></li>
-              <li><a href="#quran-mushaf" class="footer-link">Quran Mushaf (Desktop)</a></li>
-              <li><a href="#adhan-prayer-times" class="footer-link">Adhan Prayer Times (Mobile)</a></li>
-              <li><a href="#adhan-tv" class="footer-link">Adhan TV (Smart TV)</a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=slm.mushaf" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="footer.mushafAndroid">Quran Mushaf (Android)</a></li>
+              <li><a href="#quran-mushaf" class="footer-link" data-i18n="footer.mushafDesktop">Quran Mushaf (Desktop)</a></li>
+              <li><a href="#adhan-prayer-times" class="footer-link" data-i18n="footer.adhanMobile">Adhan Prayer Times (Mobile)</a></li>
+              <li><a href="#adhan-tv" class="footer-link" data-i18n="footer.adhanTv">Adhan TV (Smart TV)</a></li>
             </ul>
           </div>
 
           <div>
-            <h4 class="footer-col-title">About &amp; Inquiries</h4>
+            <h4 class="footer-col-title" data-i18n="footer.about">About &amp; Inquiries</h4>
             <ul class="footer-links">
-              <li><a href="#values" class="footer-link">Our Philosophy</a></li>
-              <li><a href="https://play.google.com/store/apps/details?id=slm.mushaf" target="_blank" rel="noopener noreferrer" class="footer-link">Google Play Store</a></li>
+              <li><a href="#values" class="footer-link" data-i18n="footer.philosophy">Our Philosophy</a></li>
+              <li><a href="https://play.google.com/store/apps/details?id=slm.mushaf" target="_blank" rel="noopener noreferrer" class="footer-link" data-i18n="footer.playStore">Google Play Store</a></li>
               <li><a href="mailto:contact@softislam.com" class="footer-link">contact@softislam.com</a></li>
             </ul>
           </div>
         </div>
 
         <div class="footer-bottom">
-          <p>© <span id="currentYear">2026</span> SoftIslam (<a href="https://softislam.com" style="color: inherit; text-decoration: underline;">softislam.com</a>). All rights reserved.</p>
+          <p>© <span id="currentYear">2026</span> SoftIslam (<a href="https://softislam.com" style="color: inherit; text-decoration: underline;">softislam.com</a>). <span data-i18n="footer.rights">All rights reserved.</span></p>
           <div class="footer-bottom-meta">
-            <span>Built with care · Pure Islamic software</span>
+            <span data-i18n="footer.tagline">Built with care · Pure Islamic software</span>
           </div>
         </div>
       </div>
     </footer>
+
+    <!-- Language & Theme Toggle Logic -->
+    <script src="./assets/js/i18n.js"></script>
 
     <!-- Vanilla Interactivity (Zero Framework / Zero Dependency) -->
     <script>

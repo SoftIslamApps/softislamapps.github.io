@@ -38,6 +38,73 @@
   --max-width: 1200px;
   --transition-fast: 160ms cubic-bezier(0.16, 1, 0.3, 1);
   --transition-normal: 240ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  --overlay-weak: rgba(255, 255, 255, 0.04);
+  --overlay-medium: rgba(255, 255, 255, 0.08);
+  --overlay-strong: rgba(255, 255, 255, 0.16);
+  --overlay-hairline: rgba(255, 255, 255, 0.02);
+  --overlay-dashed: rgba(255, 255, 255, 0.12);
+  --overlay-hover: rgba(255, 255, 255, 0.18);
+
+  --header-bg: rgba(10, 14, 20, 0.88);
+  --card-shell-bg: linear-gradient(160deg, #101724 0%, #0c111a 100%);
+  --media-shell-bg: #070a0f;
+  --footer-bg: #06090e;
+  --btn-cta-text: #0a0e14;
+
+  --text-slate: #cbd5e1;
+
+  --shadow-card: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 50px -10px rgba(212, 175, 55, 0.08);
+  --shadow-media: 0 16px 36px rgba(0, 0, 0, 0.6);
+  --shadow-cta: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --media-border: rgba(255, 255, 255, 0.08);
+  --cta-banner-bg: radial-gradient(ellipse at 50% 120%, rgba(20, 83, 45, 0.35) 0%, rgba(15, 22, 34, 0.95) 75%);
+}
+
+:root[data-theme="light"] {
+  --bg-primary: #f8f7f2;
+  --bg-surface: #ffffff;
+  --bg-surface-elevated: #f1efe6;
+  --bg-surface-translucent: rgba(255, 255, 255, 0.85);
+
+  --border-subtle: rgba(10, 14, 20, 0.1);
+  --border-gold: rgba(184, 146, 40, 0.3);
+  --border-gold-hover: rgba(184, 146, 40, 0.55);
+
+  --gold-300: #b8922a;
+  --gold-400: #9c7a1e;
+  --gold-500: #8a6a17;
+  --gold-600: #6f5412;
+
+  --emerald-400: #0d9668;
+  --emerald-500: #0b7d57;
+  --emerald-900: #d1fae5;
+
+  --text-primary: #14181f;
+  --text-secondary: #4b5563;
+  --text-muted: #6b7280;
+  --text-gold: #7a5f16;
+
+  --overlay-weak: rgba(10, 14, 20, 0.03);
+  --overlay-medium: rgba(10, 14, 20, 0.06);
+  --overlay-strong: rgba(10, 14, 20, 0.12);
+  --overlay-hairline: rgba(10, 14, 20, 0.02);
+  --overlay-dashed: rgba(10, 14, 20, 0.15);
+  --overlay-hover: rgba(10, 14, 20, 0.16);
+
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --card-shell-bg: linear-gradient(160deg, #ffffff 0%, #f3f1e9 100%);
+  --media-shell-bg: #eceae1;
+  --footer-bg: #efece2;
+  --btn-cta-text: #14181f;
+
+  --text-slate: #374151;
+
+  --shadow-card: 0 12px 30px -15px rgba(20, 24, 31, 0.15), 0 0 40px -10px rgba(184, 146, 40, 0.1);
+  --shadow-media: 0 12px 28px rgba(20, 24, 31, 0.12);
+  --shadow-cta: 0 8px 24px rgba(20, 24, 31, 0.1);
+  --media-border: rgba(10, 14, 20, 0.08);
+  --cta-banner-bg: radial-gradient(ellipse at 50% 120%, rgba(209, 250, 229, 0.7) 0%, rgba(255, 255, 255, 0.98) 75%);
 }
 
 *, *::before, *::after {
@@ -91,7 +158,7 @@ a:focus-visible, button:focus-visible {
   position: sticky;
   top: 0;
   z-index: 50;
-  background-color: rgba(10, 14, 20, 0.88);
+  background-color: var(--header-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
@@ -180,7 +247,7 @@ a:focus-visible, button:focus-visible {
   font-size: 0.875rem;
   font-weight: 600;
   text-decoration: none;
-  color: #0a0e14;
+  color: var(--btn-cta-text);
   background: linear-gradient(135deg, var(--gold-300), var(--gold-500));
   border-radius: var(--radius-sm);
   transition: transform var(--transition-fast), filter var(--transition-fast);
@@ -315,15 +382,15 @@ a:focus-visible, button:focus-visible {
   font-weight: 600;
   text-decoration: none;
   color: var(--text-primary);
-  background-color: rgba(255, 255, 255, 0.04);
+  background-color: var(--overlay-weak);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
 }
 
 .btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.16);
+  background-color: var(--overlay-medium);
+  border-color: var(--overlay-strong);
 }
 
 /* Trust Bar / Claim-to-Proof */
@@ -403,11 +470,11 @@ a:focus-visible, button:focus-visible {
 
 /* Featured App Showcase: Quran Mushaf */
 .featured-card {
-  background: linear-gradient(160deg, #101724 0%, #0c111a 100%);
+  background: var(--card-shell-bg);
   border: 1px solid var(--border-gold);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 50px -10px rgba(212, 175, 55, 0.08);
+  box-shadow: var(--shadow-card);
   margin-bottom: 4rem;
 }
 
@@ -486,7 +553,7 @@ a:focus-visible, button:focus-visible {
   align-items: flex-start;
   gap: 0.75rem;
   font-size: 0.9375rem;
-  color: #cbd5e1;
+  color: var(--text-slate);
 }
 
 .feature-check-item svg {
@@ -556,8 +623,8 @@ a:focus-visible, button:focus-visible {
   font-size: 0.875rem;
   font-weight: 500;
   color: var(--text-muted);
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px dashed rgba(255, 255, 255, 0.12);
+  background-color: var(--overlay-hairline);
+  border: 1px dashed var(--overlay-dashed);
   border-radius: var(--radius-md);
   cursor: default;
   user-select: none;
@@ -587,8 +654,8 @@ a:focus-visible, button:focus-visible {
   width: auto;
   height: auto;
   border-radius: var(--radius-lg);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--shadow-media);
+  border: 1px solid var(--media-border);
   object-fit: cover;
   transition: transform var(--transition-normal);
 }
@@ -630,7 +697,7 @@ a:focus-visible, button:focus-visible {
   width: 100%;
   height: 240px;
   overflow: hidden;
-  background-color: #070a0f;
+  background-color: var(--media-shell-bg);
   border-bottom: 1px solid var(--border-subtle);
 }
 
@@ -687,7 +754,7 @@ a:focus-visible, button:focus-visible {
   align-items: center;
   gap: 0.625rem;
   font-size: 0.875rem;
-  color: #cbd5e1;
+  color: var(--text-slate);
 }
 
 .secondary-features li svg {
@@ -735,7 +802,7 @@ a:focus-visible, button:focus-visible {
 }
 
 .value-card:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: var(--overlay-hover);
 }
 
 .value-icon {
@@ -771,13 +838,13 @@ a:focus-visible, button:focus-visible {
 
 /* Call to Action Banner */
 .cta-banner {
-  background: radial-gradient(ellipse at 50% 120%, rgba(20, 83, 45, 0.35) 0%, rgba(15, 22, 34, 0.95) 75%);
+  background: var(--cta-banner-bg);
   border: 1px solid var(--border-gold);
   border-radius: var(--radius-xl);
   padding: 3.5rem 2rem;
   text-align: center;
   margin: 2rem 0;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-cta);
 }
 
 .cta-headline {
@@ -801,7 +868,7 @@ a:focus-visible, button:focus-visible {
 /* Footer */
 .site-footer {
   margin-top: auto;
-  background-color: #06090e;
+  background-color: var(--footer-bg);
   border-top: 1px solid var(--border-subtle);
   padding: 4rem 0 2.5rem;
 }
@@ -903,4 +970,98 @@ a:focus-visible, button:focus-visible {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Language & Theme Toggle Buttons */
+.icon-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast);
+}
+
+.icon-toggle-btn:hover {
+  background-color: var(--overlay-weak);
+  border-color: var(--border-gold-hover);
+}
+
+.icon-toggle-btn .theme-icon-dark,
+.icon-toggle-btn .theme-icon-light {
+  display: none;
+  width: 18px;
+  height: 18px;
+}
+
+:root:not([data-theme="light"]) .icon-toggle-btn .theme-icon-dark {
+  display: inline-flex;
+}
+
+:root[data-theme="light"] .icon-toggle-btn .theme-icon-light {
+  display: inline-flex;
+}
+
+@media (max-width: 600px) {
+  .header-actions {
+    gap: 0.4rem;
+  }
+
+  .btn-header-cta span {
+    display: none;
+  }
+
+  .btn-header-cta {
+    padding: 0.6rem;
+  }
+
+  .icon-toggle-btn {
+    width: 36px;
+    height: 36px;
+    flex-shrink: 0;
+  }
+
+  .mobile-nav-toggle {
+    flex-shrink: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .header-actions {
+    gap: 0.3rem;
+  }
+
+  .icon-toggle-btn {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* RTL Support (Arabic) */
+html[dir="rtl"] .btn-secondary svg {
+  transform: scaleX(-1);
+}
+
+@media (min-width: 768px) {
+  html[dir="rtl"] .footer-bottom {
+    text-align: right;
+  }
+}
+
+html[dir="rtl"] .cta-subhead,
+html[dir="rtl"] .section-desc,
+html[dir="rtl"] .hero-subhead {
+  text-align: center;
+}
+
+html[lang="ar"] {
+  --font-sans: 'Noto Kufi Arabic', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Tahoma, sans-serif;
 }

@@ -206,15 +206,14 @@
   function resolveInitialLang() {
     var stored = getStoredLang();
     if (stored === "en" || stored === "ar") return stored;
-    var nav = (navigator.language || "en").toLowerCase();
-    return nav.indexOf("ar") === 0 ? "ar" : "en";
+    return "ar";
   }
 
   function resolveInitialTheme() {
     var stored = getStoredTheme();
     if (stored === "light" || stored === "dark") return stored;
-    var prefersLight = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches;
-    return prefersLight ? "light" : "dark";
+    var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return prefersDark ? "dark" : "light";
   }
 
   function applyTheme(theme) {
